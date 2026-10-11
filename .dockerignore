@@ -1,0 +1,25 @@
+# Keep the Docker build context small & the image self-contained.
+# NOTE: unlike .gitignore, we DO include data/*.npy here so the model
+# is baked into the image.
+
+# Version control / IDE / OS
+.git/
+.gitignore
+.idea/
+.DS_Store
+
+# Virtual environments
+.venv/
+.venv_train/
+
+# Python caches / tests
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Large raw corpora & training model (regenerable; NOT needed at runtime)
+data/raw/
+
+# Scratch
+tmp/
+*.log
