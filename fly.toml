@@ -17,7 +17,7 @@ primary_region = "fra"   # Frankfurt — closest Fly region to Armenia
 
 [[vm]]
   size = "shared-cpu-1x"
-  memory = "512mb"   # holds the ~315MB vector table + app; bump to 1gb if needed
+  memory = "1gb"   # holds the ~315MB vector table + app with headroom
 
 # A little swap as a safety net for the lazy 315MB load under 512MB RAM.
 swap_size_mb = 512

@@ -22,7 +22,7 @@ class WordVectors:
     """Full word2vec table with fast word -> normalized vector lookup."""
 
     def __init__(self, words: list[str], matrix: np.ndarray):
-        self.matrix = matrix.astype(np.float32)
+        self.matrix = np.ascontiguousarray(matrix, dtype=np.float32)
         self.word_to_index = {w: i for i, w in enumerate(words)}
 
     @classmethod

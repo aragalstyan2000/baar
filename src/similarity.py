@@ -20,7 +20,7 @@ class VocabularyIndex:
         if len(words) != matrix.shape[0]:
             raise ValueError("words and matrix size mismatch")
         self.words = words
-        self.matrix = matrix.astype(np.float32)
+        self.matrix = np.ascontiguousarray(matrix, dtype=np.float32)
         self.word_to_index = {w: i for i, w in enumerate(words)}
 
     @classmethod
