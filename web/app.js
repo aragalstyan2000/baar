@@ -198,6 +198,64 @@ function showDialog({
   });
 }
 
+// ---------- donation ----------
+const IDRAM_ID = "424968170";
+
+function showDonate() {
+  return new Promise((resolve) => {
+    const backdrop = document.createElement("div");
+    backdrop.className = "modal-backdrop";
+
+    const modal = document.createElement("div");
+    modal.className = "modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.innerHTML =
+      `<div class="modal__emoji">❤️</div>` +
+      `<h2 class="modal__title">Աջակցել Baar-ին</h2>` +
+      `<p class="modal__msg">Եթե խաղը դուր եկավ, կարող ես աջակցել Idram-ով։ Փոխանցումն ուղարկիր այս հաշվեհամարին՝</p>` +
+      `<div class="donate__id"><span class="donate__num">${IDRAM_ID}</span>` +
+      `<button class="donate__copy" type="button">Պատճենել</button></div>` +
+      `<div class="modal__actions"></div>`;
+
+    const actions = modal.querySelector(".modal__actions");
+    const copyBtn = modal.querySelector(".donate__copy");
+
+    const close = (val) => {
+      document.removeEventListener("keydown", onKey);
+      backdrop.remove();
+      resolve(val);
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") close(false);
+    };
+
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(IDRAM_ID);
+        copyBtn.textContent = "Պատճենվեց ✓";
+        setTimeout(() => (copyBtn.textContent = "Պատճենել"), 1500);
+      } catch (_) {
+        toast("Չհաջողվեց պատճենել։");
+      }
+    });
+
+    const ok = document.createElement("button");
+    ok.className = "modal__btn modal__btn--confirm";
+    ok.textContent = "Շնորհակալություն 🙏";
+    ok.addEventListener("click", () => close(true));
+    actions.appendChild(ok);
+
+    backdrop.addEventListener("click", (e) => {
+      if (e.target === backdrop) close(false);
+    });
+    document.addEventListener("keydown", onKey);
+    backdrop.appendChild(modal);
+    document.body.appendChild(backdrop);
+    ok.focus();
+  });
+}
+
 // ---------- actions ----------
 async function loadGame(gameId) {
   el.submit.disabled = true;
@@ -452,6 +510,7 @@ $("giveup-btn").addEventListener("click", () => { closeSheet(); doGiveUp(); });
 $("random-btn").addEventListener("click", () => { closeSheet(); randomGame(); });
 $("daily-btn").addEventListener("click", () => { closeSheet(); loadGame("daily"); });
 $("reset-btn").addEventListener("click", () => { closeSheet(); resetGame(); });
+$("donate-btn").addEventListener("click", () => { closeSheet(); showDonate(); });
 $("share-btn").addEventListener("click", share);
 
 // ---------- boot ----------

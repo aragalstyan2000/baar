@@ -320,6 +320,7 @@ body {
 }
 .sheet__item:active { transform: scale(0.99); }
 .sheet__item--warn { color: var(--warn); }
+.sheet__item--donate { color: #ec4899; font-weight: 700; }
 .sheet__about {
   font-size: 12px;
   color: var(--text-dim);
@@ -384,6 +385,38 @@ body {
 .modal__btn--confirm { background: var(--accent); color: var(--accent-ink); }
 .modal__btn--warn { background: var(--warn); color: #fff; }
 .modal__btn:active { transform: scale(0.98); }
+
+.donate__id {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 0 0 18px;
+}
+.donate__num {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.donate__copy {
+  appearance: none;
+  border: none;
+  border-radius: 9px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--accent);
+  color: var(--accent-ink);
+  white-space: nowrap;
+}
+.donate__copy:active { transform: scale(0.97); }
 
 @keyframes modalpop {
   from { transform: scale(0.94); opacity: 0; }
