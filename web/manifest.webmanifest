@@ -1,0 +1,16 @@
+{
+  "name": "Baar — հայկական Contexto",
+  "short_name": "Baar",
+  "description": "Գտիր օրվա գաղտնի բառը։",
+  "lang": "hy",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0e1016",
+  "theme_color": "#4f46e5",
+  "icons": [
+    { "src": "./favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "./apple-touch-icon.png", "type": "image/png", "sizes": "180x180" },
+    { "src": "./icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
+  ]
+}

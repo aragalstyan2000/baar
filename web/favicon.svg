@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Baar">
+  <defs>
+    <linearGradient id="baarGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <radialGradient id="baarShine" cx="0.3" cy="0.25" r="0.9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#baarGrad)"/>
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#baarShine)"/>
+  <circle cx="372" cy="150" r="30" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="248" y="278" text-anchor="middle" dominant-baseline="central"
+        font-family="'Mshtakan','Noto Sans Armenian','Segoe UI',system-ui,-apple-system,sans-serif"
+        font-size="330" font-weight="800" fill="#ffffff">Բ</text>
+</svg>
