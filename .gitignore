@@ -1,0 +1,23 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# ---- Virtual environments ----
+.venv/
+.venv_train/
+
+# ---- IDE / OS ----
+.idea/
+.DS_Store
+
+# ---- Temp / scratch ----
+tmp/
+
+# ---- Large model artifacts & corpora (NOT for GitHub) ----
+# Regenerate with: src/train_word2vec.py  then  src/export_word2vec.py
+# (see README "Rebuilding the model"). w2v_vectors.npy also exceeds
+# GitHub's 100 MB per-file limit.
+data/raw/
+data/w2v_vectors.npy
+data/embeddings.npy

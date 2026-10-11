@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description" content="Baar — հայկական Contexto. Գտիր օրվա գաղտնի բառը." />
+  <title>Baar — Armenian Contexto</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9F%A2%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <h1 class="brand">Baar</h1>
+      <div class="meta">
+        <span id="game-label" class="meta__game">…</span>
+        <span id="guess-count" class="meta__count">0 փորձ</span>
+      </div>
+      <button id="menu-btn" class="icon-btn" aria-label="Ընտրացանկ" title="Ընտրացանկ">⋯</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <form id="guess-form" class="guess-bar" autocomplete="off">
+      <input
+        id="guess-input"
+        class="guess-input"
+        type="text"
+        inputmode="text"
+        lang="hy"
+        placeholder="Մուտքագրիր բառ…"
+        aria-label="Քո գուշակությունը"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+      />
+      <button id="guess-submit" class="guess-submit" type="submit">Գուշակել</button>
+    </form>
+
+    <p id="toast" class="toast" role="status" aria-live="polite"></p>
+
+    <section id="win-banner" class="win-banner" hidden>
+      <div class="win-banner__emoji">🎉</div>
+      <div class="win-banner__text">
+        <strong id="win-title">Ապրե՛ս։ Գտար բառը։</strong>
+        <span id="win-sub"></span>
+      </div>
+      <button id="share-btn" class="btn btn--light">Կիսվել</button>
+    </section>
+
+    <div id="latest" class="latest" hidden></div>
+
+    <ul id="guess-list" class="guess-list" aria-live="polite"></ul>
+
+    <div id="empty-state" class="empty">
+      <p>Գուշակիր օրվա գաղտնի բառը։</p>
+      <p class="empty__hint">Որքան <em>փոքր</em> է համարը, այնքան բառդ <em>իմաստով մոտ</em> է։ №1-ը գաղտնի բառն է։</p>
+    </div>
+  </main>
+
+  <!-- menu sheet -->
+  <div id="sheet-backdrop" class="sheet-backdrop" hidden></div>
+  <div id="sheet" class="sheet" role="dialog" aria-modal="true" aria-label="Ընտրացանկ" hidden>
+    <div class="sheet__handle"></div>
+    <button id="hint-btn" class="sheet__item">💡 Հուշում</button>
+    <button id="giveup-btn" class="sheet__item sheet__item--warn">🏳️ Հանձնվել (ցույց տալ բառը)</button>
+    <button id="random-btn" class="sheet__item">🎲 Պատահական խաղ</button>
+    <button id="daily-btn" class="sheet__item">📅 Օրվա խաղ</button>
+    <button id="reset-btn" class="sheet__item sheet__item--warn">♻️ Զրոյացնել այս խաղը</button>
+    <div class="sheet__about">
+      Baar · հայկական <a href="https://contexto.me/en/" target="_blank" rel="noopener">Contexto</a>-ի
+      այլընտրանք · դասակարգումը՝ word2vec իմաստային մոդելով։
+    </div>
+    <button id="sheet-close" class="btn btn--block">Փակել</button>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

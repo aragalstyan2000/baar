@@ -1,0 +1,8 @@
+# Runtime: pure-numpy word2vec ranking (no torch / transformers needed).
+fastapi>=0.115
+uvicorn[standard]>=0.30
+numpy>=1.26
+
+# Offline training only (install in a separate Python 3.12 venv):
+#   python3.12 -m venv .venv_train
+#   .venv_train/bin/pip install gensim numpy
